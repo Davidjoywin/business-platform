@@ -57,4 +57,4 @@ With more time, I would consider implementing the following improvements:
 
 ## Live Deployment Link
 
-* `https://vercel.com/davidjoywins-projects/business-portal`
+* `https://business-portal-lb.vercel.app/`
