@@ -18,6 +18,11 @@ export async function comparePassword(password: string, hash_password: string) {
   return await bcrypt.compare(password, hash_password)
 }
 
+export function getAuthUser(users: any, isLoggedIn: boolean) {
+  const id = users.findIndex((user: any) => user.isLoggedIn == true)
+  return users[id]
+}
+
 export function findUserByEmail(users: any, email: any): number {
   // find users from local storage using email
   const user_id: number = users.findIndex((user: any) => user.email === email)

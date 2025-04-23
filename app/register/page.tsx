@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { z } from "zod"
@@ -13,7 +13,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CheckCircle, AlertCircle } from "lucide-react"
 import { List } from "postcss/lib/list"
-import { createUserInStorage, getUsersFromStorage, findUserByEmail, encryptPassword } from "@/lib/utils"
+import { createUserInStorage, getUsersFromStorage, findUserByEmail, encryptPassword, getAuthUser } from "@/lib/utils"
 
 // Form validation schema
 const registerSchema = z
@@ -46,6 +46,12 @@ export default function RegisterPage() {
     message: "",
   })
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(()=> {
+      let users = getUsersFromStorage("fleetUser")
+      let auth_user = getAuthUser(users, true)
+      if (auth_user?.isLoggedIn|false) router.push("/dashboard")
+    }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
