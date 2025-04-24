@@ -239,8 +239,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {/* Header */}
-        <header className="bg-white border-b sticky top-0 z-30">
-          <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <header className="bg-white sticky top-0 z-30">
+          <div className="mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-2">
               {/* Mobile menu trigger */}
               <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
@@ -250,22 +250,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     <span className="sr-only">Toggle menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="p-0 w-64">
-                  <div className="p-4 border-b">
+                <SheetContent side="left" className="bg-black p-0 w-64">
+                  <div className="p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        {/* <Image
-                          src="/placeholder.svg?height=32&width=32"
-                          alt="FleetMaster Logo"
-                          width={32}
-                          height={32}
-                          className="rounded"
-                        /> */}
-                        <span className="font-bold">FleetMaster</span>
+                        <span className="text-white font-bold">FleetMaster</span>
                       </div>
-                      {/* <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(false)}>
-                        <X className="h-5 w-5" />
-                      </Button> */}
                     </div>
                   </div>
                   <nav className="p-4">
@@ -274,7 +264,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         <li key={link.name}>
                           <Link
                             href={link.href}
-                            className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"
+                            className="flex items-center gap-3 px-3 py-2 text-white rounded-md hover:bg-gray-100 hover:text-gray-700"
                             onClick={() => setIsSidebarOpen(false)}
                           >
                             <link.icon className="h-5 w-5" />
@@ -287,15 +277,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 </SheetContent>
               </Sheet>
   
-              <Link href="/dashboard" className="flex items-center gap-2">
-                {/* <Image
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="FleetMaster Logo"
-                  width={32}
-                  height={32}
-                  className="rounded"
-                /> */}
-                <span className="font-bold hidden sm:inline-block">FleetMaster</span>
+              <Link href="/dashboard" className="flex ml-10 items-center gap-2">
+                <span className="font-bold text-xl hidden sm:inline-block">FleetMaster</span>
               </Link>
             </div>
   
@@ -336,14 +319,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   
         <div className="flex flex-1">
           {/* Sidebar - desktop */}
-          <aside className="hidden md:block w-64 bg-white border-r shrink-0">
+          <aside className="hidden md:block w-64 bg-black border-r shrink-0">
             <nav className="p-4 fixed h-[calc(100vh-4rem)] overflow-y-auto">
               <ul className="space-y-2">
                 {sidebarLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-100 text-gray-700"
+                      className="flex items-center gap-3 px-3 py-2 rounded-md text-white hover:text-black hover:bg-gray-100"
                     >
                       <link.icon className="h-5 w-5" />
                       <span>{link.name}</span>
