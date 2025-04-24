@@ -50,7 +50,7 @@ export default function RegisterPage() {
   useEffect(()=> {
       let users = getUsersFromStorage("fleetUser")
       let auth_user = getAuthUser(users, true)
-      if (auth_user?.isLoggedIn|false) router.push("/dashboard")
+      if (auth_user?.isLoggedIn|0) router.push("/dashboard")
     }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
